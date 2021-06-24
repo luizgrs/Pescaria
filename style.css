@@ -1,0 +1,177 @@
+:root {
+    --agua-quanto-sobe-desce: 15px;
+    --cor-agua:#6ba4ff;
+    --altura-agua: 20%;
+    cursor: none;
+    user-select: none;
+}
+
+body {
+    overflow: hidden;
+}
+
+#agua {
+    --agua-tempo-sobe-desce: 3s; 
+    background-color: var(--cor-agua);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--altura-agua);
+    animation: nivel_agua 2s linear forwards infinite;
+}
+
+#agua_cima {
+    position: absolute;
+    top: 20px;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--cor-agua);
+}
+
+#agua_fundo {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.onda_topo{
+    position: absolute;
+    top: 0;
+    transform: translate(0, -99%);
+}
+
+.onda_topo path {
+    fill: var(--cor-agua);
+}
+
+#agua_fundo .onda_topo path {
+    opacity: .7;
+}
+
+
+
+@keyframes nivel_agua {
+    0% {
+        height: var(--altura-agua);
+    }
+
+    50% {
+        height: calc(var(--altura-agua) - var(--agua-quanto-sobe-desce));
+    }
+
+    100% {
+        height: var(--altura-agua);
+    }
+    
+}
+
+.peixe {
+    width: 200px;
+    position: absolute;
+    left: 101px;
+    animation: peixe-sobe-desce 2s ease-in forwards;
+}
+
+.peixe.pescado {
+    transform-origin: 50% 50%;
+    animation: peixe-capturado 1s linear forwards;
+}
+
+.peixe .boca {
+    transform-origin: 39px 26px;
+    animation: peixe-fecha-boca 1s .4s linear forwards;
+}
+
+.peixes {
+    position: absolute;
+}
+
+@keyframes peixe-fecha-boca {
+    100% {
+        transform: rotate(-90deg);
+    }
+}
+
+@keyframes peixe-capturado {
+    100% {
+        opacity: 0;
+        transform: translate(100vw, -100vh) rotate(980deg);
+    }
+}
+
+@keyframes peixe-sobe-desce {
+    0% {
+        top: 0;
+    }
+    50% {
+        top: -50vh;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+#vara {
+    position: absolute;
+    top: 0;
+}
+
+#vara.puxada {
+    animation: vara-puxada ease-out .1s;
+}
+
+@keyframes  vara-puxada {
+    0%{ top: 0px; }
+    50%{ top: -50px;}
+    100%{ top: 0;}
+}
+
+#vara::before {
+    width: 2px;
+    display:block;
+    height: 40vh;
+    background-color: #000;
+    content: '';
+}
+
+#anzol {
+    width: 45px;
+    position: absolute;
+    top: 100%;
+    transform: translate(-50%, -8px);
+}
+
+#placar {
+    font-size: 30px;
+    font-weight: bold;
+    color: darkgreen;
+}
+
+
+#fim {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,121,228,1) 61%, rgba(0,212,255,1) 100%);
+    position: absolute;
+    display: none;
+    color: white;
+    font-size: 72px;
+    text-align: center;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#timer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 40px;
+}
