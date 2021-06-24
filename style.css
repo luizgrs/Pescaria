@@ -6,16 +6,6 @@
     user-select: none;
 }
 
-@media screen and (max-height: 800px){
-    :root {
-        --altura-agua: 5%;
-    }
-
-    #vara::before {
-        height: 60vh;
-    }
-}
-
 body {
     overflow: hidden;
 }
@@ -184,4 +174,19 @@ body {
     top: 0;
     right: 0;
     font-size: 40px;
+}
+
+
+@media screen and (max-height: 800px){
+    :root {
+        --altura-agua: 5%;
+    }
+
+    .peixe {
+        width: 100px;
+    }
+
+    #vara::before {
+        height: 60vh;
+    }
 }
