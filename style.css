@@ -6,6 +6,12 @@
     user-select: none;
 }
 
+@media screen and (max-height: 800px){
+    :root {
+        --altura-agua: 5%;
+    }
+}
+
 body {
     overflow: hidden;
 }
